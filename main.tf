@@ -1,10 +1,25 @@
-locals {
-  bug_string = <<EOT
-/usr/lib/python3.11/site-packages/paramiko/pkey.py:100: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from this module in 48.0.0.
-  "cipher": algorithms.TripleDES,
-/usr/lib/python3.11/site-packages/paramiko/transport.py:259: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from this module in 48.0.0.
-  "class": algorithms.TripleDES,
-EOT
-
-  secontext = one(jsondecode(replace(ansible_playbook.directory.ansible_playbook_stdout, local.bug_string, "")).plays).tasks[0].hosts[var.hostname].secontext
+resource "ansible_playbook" "directory" {
+  name                    = var.hostname
+  playbook                = "${path.module}/directory.yaml"
+  replayable              = false
+  ignore_playbook_failure = false
+  extra_vars = merge(
+    {
+      dir_path        = var.path
+      dir_mode        = var.mode
+      dir_owner       = var.owner
+      dir_group_owner = var.group_owner != null ? var.group_owner : var.owner
+    },
+    var.secontext.user != null ? { dir_seuser = var.secontext.user } : {},
+    var.secontext.role != null ? { dir_serole = var.secontext.role } : {},
+    var.secontext.type != null ? { dir_setype = var.secontext.type } : {},
+    var.secontext.level != null ? { dir_selevel = var.secontext.level } : {}
+  )
+  lifecycle {
+    replace_triggered_by = [
+      null_resource.directory,
+      null_resource.external,
+      null_resource.variables
+    ]
+  }
 }

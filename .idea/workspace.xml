@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0e5b99f-5cff-4b57-b7ee-faf793e69492" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/directory.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/directory.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/main.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.tf" beforeDir="false" afterPath="$PROJECT_DIR$/output.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playbooks.tf" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/triggers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/triggers.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playbooks.tf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rasmus/Programs/TF_Modules/module-directory&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/rasmus/Programs/TF_Modules/module-file",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -88,7 +84,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Terraform module to create a directory on Linux with Ansible" />
     <MESSAGE value="Add trigger output" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add trigger output" />
+    <MESSAGE value="Add variables as output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add variables as output" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
