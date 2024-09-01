@@ -12,3 +12,4 @@
         serole: "{{ dir_serole | default(omit) }}"
         setype: "{{ dir_setype | default(omit) }}"
         seuser: "{{ dir_seuser | default(omit) }}"
+        selevel: "{{ dir_selevel | default(omit) }}"

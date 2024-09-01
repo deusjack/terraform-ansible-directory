@@ -23,20 +23,22 @@ variable "mode" {
 
 variable "owner" {
   type        = string
-  description = "Owner of the directory"
+  description = "Name of the owner of the directory"
   default     = "root"
 }
 
 variable "group_owner" {
   type        = string
-  description = "Group owner of the directory"
+  description = "Name of the group owner of the directory"
   default     = null
 }
 
-variable "selinux" {
+variable "secontext" {
   type = object({
-    role = optional(string, null)
-    type = optional(string, null)
-    user = optional(string, null)
+    user  = optional(string, null)
+    role  = optional(string, null)
+    type  = optional(string, null)
+    level = optional(string, null)
   })
+  description = "The secontext for the directory"
 }

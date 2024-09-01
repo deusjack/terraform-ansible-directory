@@ -42,16 +42,22 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_external_triggers"></a> [external\_triggers](#input\_external\_triggers) | Triggers for rerunning the directory playbook except variables | `map(string)` | `{}` | no |
-| <a name="input_group_owner"></a> [group\_owner](#input\_group\_owner) | Group owner of the directory | `string` | `null` | no |
+| <a name="input_group_owner"></a> [group\_owner](#input\_group\_owner) | Name of the group owner of the directory | `string` | `null` | no |
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of linux machine the directory will be created on | `string` | n/a | yes |
 | <a name="input_mode"></a> [mode](#input\_mode) | Mode of the directory | `string` | `"0755"` | no |
-| <a name="input_owner"></a> [owner](#input\_owner) | Owner of the directory | `string` | `"root"` | no |
+| <a name="input_owner"></a> [owner](#input\_owner) | Name of the owner of the directory | `string` | `"root"` | no |
 | <a name="input_path"></a> [path](#input\_path) | Path of the directory | `string` | n/a | yes |
-| <a name="input_selinux"></a> [selinux](#input\_selinux) | n/a | <pre>object({<br>    role = optional(string, null)<br>    type = optional(string, null)<br>    user = optional(string, null)<br>  })</pre> | n/a | yes |
+| <a name="input_secontext"></a> [secontext](#input\_secontext) | The secontext for the directory | <pre>object({<br>    user  = optional(string, null)<br>    role  = optional(string, null)<br>    type  = optional(string, null)<br>    level = optional(string, null)<br>  })</pre> | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_triggers"></a> [triggers](#output\_triggers) | n/a |
+| <a name="output_group"></a> [group](#output\_group) | Name of the group owner of the directory |
+| <a name="output_hostname"></a> [hostname](#output\_hostname) | The hostname of linux machine the directory was created on |
+| <a name="output_mode"></a> [mode](#output\_mode) | Mode of the directory |
+| <a name="output_owner"></a> [owner](#output\_owner) | Name of the owner of the directory |
+| <a name="output_path"></a> [path](#output\_path) | Path of the directory |
+| <a name="output_secontext"></a> [secontext](#output\_secontext) | The applied secontext for the directory |
+| <a name="output_triggers"></a> [triggers](#output\_triggers) | Trigger for directory changes to be used by other null\_resources/modules |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

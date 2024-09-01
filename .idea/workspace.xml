@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0e5b99f-5cff-4b57-b7ee-faf793e69492" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/output.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/directory.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/directory.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.tf" beforeDir="false" afterPath="$PROJECT_DIR$/output.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playbooks.tf" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/triggers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/triggers.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +87,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Terraform module to create a directory on Linux with Ansible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terraform module to create a directory on Linux with Ansible" />
+    <MESSAGE value="Add trigger output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add trigger output" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

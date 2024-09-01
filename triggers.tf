@@ -22,12 +22,13 @@ resource "null_resource" "external" {
 
 resource "null_resource" "variables" {
   triggers = {
-    path         = var.path
-    mode         = var.mode
-    owner        = var.owner
-    group_owner  = var.group_owner
-    selinux_role = var.selinux.role
-    selinux_type = var.selinux.type
-    selinux_user = var.selinux.user
+    path            = var.path
+    mode            = var.mode
+    owner           = var.owner
+    group_owner     = var.group_owner
+    secontext_role  = var.secontext.role
+    secontext_type  = var.secontext.type
+    secontext_user  = var.secontext.user
+    secontext_level = var.secontext.level
   }
 }

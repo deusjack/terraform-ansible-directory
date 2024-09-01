@@ -10,9 +10,10 @@ resource "ansible_playbook" "directory" {
       dir_owner       = var.owner
       dir_group_owner = var.group_owner != null ? var.group_owner : var.owner
     },
-    var.selinux.role != null ? { dir_serole = var.selinux.role } : {},
-    var.selinux.type != null ? { dir_setype = var.selinux.type } : {},
-    var.selinux.user != null ? { dir_seuser = var.selinux.user } : {}
+    var.secontext.user != null ? { dir_seuser = var.secontext.user } : {},
+    var.secontext.role != null ? { dir_serole = var.secontext.role } : {},
+    var.secontext.type != null ? { dir_setype = var.secontext.type } : {},
+    var.secontext.level != null ? { dir_selevel = var.secontext.level } : {}
   )
   lifecycle {
     replace_triggered_by = [
