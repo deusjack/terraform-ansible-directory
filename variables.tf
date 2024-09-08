@@ -41,4 +41,5 @@ variable "secontext" {
     level = optional(string, null)
   })
   description = "The secontext for the directory"
+  default     = {}
 }

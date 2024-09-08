@@ -47,7 +47,7 @@ No modules.
 | <a name="input_mode"></a> [mode](#input\_mode) | Mode of the directory | `string` | `"0755"` | no |
 | <a name="input_owner"></a> [owner](#input\_owner) | Name of the owner of the directory | `string` | `"root"` | no |
 | <a name="input_path"></a> [path](#input\_path) | Path of the directory | `string` | n/a | yes |
-| <a name="input_secontext"></a> [secontext](#input\_secontext) | The secontext for the directory | <pre>object({<br>    user  = optional(string, null)<br>    role  = optional(string, null)<br>    type  = optional(string, null)<br>    level = optional(string, null)<br>  })</pre> | n/a | yes |
+| <a name="input_secontext"></a> [secontext](#input\_secontext) | The secontext for the directory | <pre>object({<br>    user  = optional(string, null)<br>    role  = optional(string, null)<br>    type  = optional(string, null)<br>    level = optional(string, null)<br>  })</pre> | `{}` | no |
 
 ## Outputs
 
