@@ -17,9 +17,9 @@ resource "ansible_playbook" "directory" {
   )
   lifecycle {
     replace_triggered_by = [
-      null_resource.directory,
-      null_resource.external,
-      null_resource.variables
+      terraform_data.directory,
+      terraform_data.external,
+      terraform_data.variables
     ]
   }
 }

@@ -13,7 +13,7 @@ output "triggers" {
   value = {
     playbook = ansible_playbook.directory.id
   }
-  description = "Trigger for directory changes to be used by other null_resources/modules"
+  description = "Trigger for directory changes to be used by other terraform_data/modules"
 }
 
 output "hostname" {
