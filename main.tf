@@ -1,25 +1,31 @@
-resource "ansible_playbook" "directory" {
-  name                    = var.hostname
-  playbook                = "${path.module}/directory.yaml"
-  replayable              = false
-  ignore_playbook_failure = false
-  extra_vars = merge(
-    {
-      dir_path        = var.path
-      dir_mode        = var.mode
-      dir_owner       = var.owner
-      dir_group_owner = var.group_owner != null ? var.group_owner : var.owner
-    },
-    var.secontext.user != null ? { dir_seuser = var.secontext.user } : {},
-    var.secontext.role != null ? { dir_serole = var.secontext.role } : {},
-    var.secontext.type != null ? { dir_setype = var.secontext.type } : {},
-    var.secontext.level != null ? { dir_selevel = var.secontext.level } : {}
-  )
-  lifecycle {
-    replace_triggered_by = [
-      terraform_data.directory,
-      terraform_data.external,
-      terraform_data.variables
-    ]
+resource "terraform_data" "directory" {
+  input = jsonencode({
+    hostname          = var.hostname
+    path              = var.path
+    mode              = var.mode
+    owner             = var.owner
+    group_owner       = var.group_owner != null ? var.group_owner : var.owner
+    secontext_role    = var.secontext.role != null ? var.secontext.role : ""
+    secontext_type    = var.secontext.type != null ? var.secontext.type : ""
+    secontext_user    = var.secontext.user != null ? var.secontext.user : ""
+    secontext_level   = var.secontext.level != null ? var.secontext.level : ""
+    external_triggers = var.external_triggers
+  })
+
+  connection {
+    host = jsondecode(self.output).hostname
+    user = "root"
+  }
+
+  provisioner "remote-exec" {
+    when = create
+    inline = compact([
+      "chown ${jsondecode(self.output).owner}:${jsondecode(self.output).group_owner} ${var.path}",
+      "chmod ${jsondecode(self.output).mode} ${jsondecode(self.output).path}",
+      jsondecode(self.output).secontext_user != "" ? "chcon -u ${jsondecode(self.output).secontext_user} ${jsondecode(self.output).path}" : null,
+      jsondecode(self.output).secontext_role != "" ? "chcon -u ${jsondecode(self.output).secontext_role} ${jsondecode(self.output).path}" : null,
+      jsondecode(self.output).secontext_type != "" ? "chcon -u ${jsondecode(self.output).secontext_type} ${jsondecode(self.output).path}" : null,
+      jsondecode(self.output).secontext_level != "" ? "chcon -u ${jsondecode(self.output).secontext_level} ${jsondecode(self.output).path}" : null,
+    ])
   }
 }
